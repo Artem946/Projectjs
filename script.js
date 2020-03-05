@@ -1,60 +1,39 @@
-// "use strict"
-// let money = prompt("Ваш бюджет на месяц?", ''),
-// 	time = prompt('Введите дату в формате YYYY-MM-DD', '');
+"use strict"
+let money = +prompt("Ваш бюджет на месяц?", ''),
+	time = prompt('Введите дату в формате YYYY-MM-DD', '');
 
-// let appData = {
-// 	budget: money,
-// 	expenses: {},
-// 	optionalExpenses: {},
-// 	income: [],
-// 	timeData: time,
-// 	savings: false
-// };
+let appData = {
+	budget: money,
+	expenses: {},
+	optionalExpenses: {},
+	income: [],
+	timeData: time,
+	savings: false
+};
 
-// let a1 = prompt("Введите обязательную статью расходов в этом месяце", ''),
-// 	a2 = prompt("Во сколько обойдется?", ''),
-// 	a3 = prompt("Введите обязательную статью расходов в этом месяце", ''),
-// 	a4 = prompt("Во сколько обойдется?", '');
 
-// appData.expenses[a1] = a2;
-// appData.expenses[a3] = a4;
-// alert(appData.budget / 30);
-// ---------------
-// if (5+5==10){
-//     console.log("куку")
-// }else {
-//     console.log('некуку')
-// }
-let num = 50;
-// switch (num) {
-//     case num < 49:
-//         console.log("Неверно");
-//         break;
-//     case num > 100:
-//         console.log("Много");
-//         break;
-//     case num > 80:
-//         console.log("Многовато");
-//         break;
-//     case  50:
-//         console.log("В точку");
-//         break;
-//     default:
-//         console.log("что то пошло не так");
-//         break;
-// }
-// while (num < 55){ 
-//     console.log(num);
-//     num++;
-// }
-// do {
-//     console.log(num);
-//     num++;
-// }
-// while (num<55);
-for (let i = 1;i < 150; i++){
-    if (i % 5){
-        continue
-    }
-    console.log(i);
+	
+for (let i = 0 ;i < 2 ; i++) {
+    let a = prompt("Введите обязательную статью расходов в этом месяце", ''),
+	    b = prompt("Во сколько обойдется?", '');
+  if ((typeof(a))==="string"&& (typeof(a)) !=null && (typeof(b)) !=null
+  && a != ''&& b != ''&& a.length < 30) {
+      console.log("done");
+      appData.expenses [a]= b;
+  }
 }
+appData.moneyPerDay = appData.budget / 30;
+alert("Ежедневный бюджет:" +appData.moneyPerDay);
+
+if(appData.moneyPerDay > 100) {
+    console.log("Да ты богат,друг");
+}else if (appData.moneyPerDay < 100 && appData.moneyPerDay > 50) {
+    console.log("Средний достаток");
+}else if (appData.moneyPerDay < 30) {
+    console.log("Да ты нищий");
+}else if (appData.moneyPerDay <= 0) {
+    console.log("Вешайся")
+}
+
+
+
